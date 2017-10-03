@@ -1,0 +1,191 @@
+<!--            _          _ _
+  ___ ___   ___| | ___ __ (_) |_
+ / __/ _ \ / __| |/ / '_ \| | __|
+| (_| (_) | (__|   <| |_) | | |_
+ \___\___/ \___|_|\_\ .__/|_|\__|
+                    |_|
+-->
+<div class="page cockpit flipin current">
+	<div class="container">
+		<!-- rivets: unless game.isMultiplayer -->
+		<!-- helper -->
+		<div class="helper">
+			<!-- rivets: if game.isMultiplayer -->
+			<span bptk-action="flip" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+				<span class="txt">Show Mission</span>
+				<i class="fa fa-reply"></i>
+			</span>
+		</div>
+		<div bptk-tabview="" style="position:relative;height:100vh;"><div id="bptk-view-34" class="tabview bptk-view"><ul class="nav nav-tabs"><li class="active"><a><i class="fa fa-dashboard"></i> Management Cockpit</a></li><li><a><i class="fa fa-history"></i> Order History</a></li></ul><div class="tab-content" bptk-yield="" style="height: 554px;"><br style="clear:both"><figure id="bptk-view-40" class="tab-pane fade bptk-view in active">
+				<div class="instruments">
+					<div class="instrument">
+						<h1>
+							<!-- rivets: if game.roles.retailer --><span bptk-tween-number="simulator.lastresult.retailer▸incomingOrder">100</span>
+							<!-- rivets: if game.roles.wholesaler -->
+							<!-- rivets: if game.roles.distributor -->
+							<!-- rivets: if game.roles.brewery -->
+							<i class="fa fa-beer"></i>
+						</h1>
+						<!-- rivets: if game.roles.retailer --><div class="description">
+							<h3>Customer Orders</h3>
+							<p>The current orders from your customers.</p>
+						</div>
+						<!-- rivets: if game.roles.wholesaler -->
+						<!-- rivets: if game.roles.distributor -->
+						<!-- rivets: if game.roles.brewery -->
+					</div>
+					<!-- rivets: if game.roles.retailer --><div class="instrument" bptk-backorder="simulator.lastresult.retailer▸backorder">
+						<h1><span bptk-tween-number="simulator.lastresult.retailer▸backorder">0</span> <i class="fa fa-beer"></i></h1>
+						<div class="description">
+							<h3>Backorder</h3>
+							<p>The units you put on back order because you ran out of stock.</p>
+						</div>
+					</div>
+					<!-- rivets: if game.roles.wholesaler -->
+					<!-- rivets: if game.roles.distributor -->
+					<!-- rivets: if game.roles.brewery -->
+					<div class="instrument">
+						<h1>
+							<i class="fa fa-usd"></i>
+							<!-- rivets: if game.roles.retailer --><span bptk-tween-number="simulator.lastresult.performanceControlling▸retailerCostToDate">200</span>
+							<!-- rivets: if game.roles.wholesaler -->
+							<!-- rivets: if game.roles.distributor -->
+							<!-- rivets: if game.roles.brewery -->
+						</h1>
+						<div class="description">
+							<h3>Costs</h3>
+							<p>Total costs incurred to date.</p>
+						</div>
+					</div>
+					<div class="instrument">
+						<h1>
+							<!-- rivets: if game.roles.retailer --><span bptk-tween-number="simulator.lastresult.retailer▸incomingDelivery">100</span>
+							<!-- rivets: if game.roles.wholesaler -->
+							<!-- rivets: if game.roles.distributor -->
+							<!-- rivets: if game.roles.brewery -->
+							<i class="fa fa-beer"></i>
+						</h1>
+						<div class="description">
+							<h3>Incoming Delivery</h3>
+							<p>
+								The units that is delivered to you from the
+								<!-- rivets: if game.roles.retailer --><span>wholesaler.</span>
+								<!-- rivets: if game.roles.wholesaler -->
+								<!-- rivets: if game.roles.distributor -->
+								<!-- rivets: if game.roles.brewery -->
+							</p>
+						</div>
+					</div>
+					<!-- rivets: if game.roles.retailer --><div class="instrument" bptk-inventory="simulator.lastresult.retailer▸inventory">
+						<h1>
+							<!-- rivets: if game.roles.retailer --><span bptk-tween-number="simulator.lastresult.retailer▸inventory">400</span>
+							<i class="fa fa-beer"></i>
+						</h1>
+						<div class="description">
+							<h3>Inventory</h3>
+							<p>Units of beer you have in stock.</p>
+						</div>
+					</div>
+					<!-- rivets: if game.roles.wholesaler -->
+					<!-- rivets: if game.roles.distributor -->
+					<!-- rivets: if game.roles.brewery -->
+					<div class="instrument">
+						<h1>
+							<!-- rivets: if game.roles.retailer --><span bptk-tween-number="simulator.lastresult.retailer▸outgoingDelivery">100</span>
+							<!-- rivets: if game.roles.wholesaler -->
+							<!-- rivets: if game.roles.distributor -->
+							<!-- rivets: if game.roles.brewery -->
+							<i class="fa fa-beer"></i>
+						</h1>
+						<div class="description">
+							<h3>Outgoing Delivery</h3>
+							<p>The units you delivered to your
+								<!-- rivets: if game.roles.retailer --><span>customers.</span>
+								<!-- rivets: if game.roles.wholesaler -->
+								<!-- rivets: if game.roles.distributor -->
+								<!-- rivets: if game.roles.brewery -->
+							</p>
+						</div>
+					</div>
+				</div>
+				<!--             _             _
+				  ___ ___  _ __ | |_ _ __ ___ | |___
+				 / __/ _ \| '_ \| __| '__/ _ \| / __|
+				| (_| (_) | | | | |_| | | (_) | \__ \
+				 \___\___/|_| |_|\__|_|  \___/|_|___/
+				-->
+				<div class="controls">
+					<!-- rivets: if game.isMultiplayer -->
+					<div>
+						Make your <!-- rivets: if game.roles.brewery --> order for
+						<i class="fa fa-calendar"></i>
+						<strong>Week 1</strong>
+					</div>
+					<!-- Retailer -->
+					<!-- rivets: if game.roles.retailer --><div class="input" bptk-contenteditable="game.uicontext.retailer▸order | integer" type="number" pattern="[0-9]*"><div contenteditable="true">100</div></div>
+					<!-- Wholesaler -->
+					<!-- rivets: if game.roles.wholesaler -->
+					<!-- Distributor -->
+					<!-- rivets: if game.roles.distributor -->
+					<!-- Brewery -->
+					<!-- rivets: if game.roles.brewery -->
+					<!-- rivets: if game.isMultiplayer -->
+					<!-- rivets: unless game.isMultiplayer --><button class="btn btn-primary play" bptk-action="finishRound" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+							<i class="fa fa-gavel"></i>
+							Order
+					</button>
+				</div></figure><figure id="bptk-view-41" class="tab-pane fade bptk-view"><!-- Retailer -->
+				<div bptk-if="game.roles.retailer">
+					<div bptk-tableview="" data-index="Week" data-draw="[
+						{ key: 'retailer▸incomingDelivery', name: 'Incoming Delivery' },
+						{ key: 'retailer▸incomingOrder', name: 'Incoming Order' },
+						{ key: 'retailer▸outgoingDelivery', name: 'Outgoing Delivery' },
+						{ key: 'retailer▸backorder', name: 'Backorder' },
+						{ key: 'retailer▸inventory', name: 'Inventory' },
+						{ key: 'performanceControlling▸retailerCost', name: 'Cost' },
+						{ key: 'retailer▸order', name: 'Order' }
+					]"></div>
+				</div>
+				<!-- Wholesaler -->
+				<div bptk-if="game.roles.wholesaler">
+					<div bptk-tableview="" data-index="Week" data-draw="[
+						{ key: 'wholesaler▸incomingDelivery', name: 'Incoming Delivery' },
+						{ key: 'wholesaler▸incomingOrder', name: 'Incoming Order' },
+						{ key: 'wholesaler▸outgoingDelivery', name: 'Outgoing Delivery' },
+						{ key: 'wholesaler▸backorder', name: 'Backorder' },
+						{ key: 'wholesaler▸inventory', name: 'Inventory' },
+						{ key: 'performanceControlling▸wholesalerCost', name: 'Costs' },
+						{ key: 'wholesaler▸order', name: 'Order' }
+					]"></div>
+				</div>
+				<!-- Distributor -->
+				<div bptk-if="game.roles.distributor">
+					<div bptk-tableview="" data-index="Week" data-draw="[
+						{ key: 'distributor▸incomingDelivery', name: 'Incoming Delivery' },
+						{ key: 'distributor▸incomingOrder', name: 'Incoming Order' },
+						{ key: 'distributor▸outgoingDelivery', name: 'Outgoing Delivery' },
+						{ key: 'distributor▸backorder', name: 'Backorder' },
+						{ key: 'distributor▸inventory', name: 'Inventory' },
+						{ key: 'performanceControlling▸distributorCost', name: 'Cost' },
+						{ key: 'distributor▸order', name: 'Order' }
+					]"></div>
+				</div>
+				<!-- Brewery -->
+				<div bptk-if="game.roles.brewery">
+					<div bptk-tableview="" data-index="Week" data-draw="[
+						{ key: 'brewery▸incomingDelivery', name: 'Incoming Delivery' },
+						{ key: 'brewery▸incomingOrder', name: 'Incoming Order' },
+						{ key: 'brewery▸outgoingDelivery', name: 'Outgoing Delivery' },
+						{ key: 'brewery▸backorder', name: 'Backorder' },
+						{ key: 'brewery▸inventory', name: 'Inventory' },
+						{ key: 'performanceControlling▸breweryCost', name: 'Cost' },
+						{ key: 'brewery▸production', name: 'Production' }
+					]"></div>
+				</div></figure></div></div></div>
+	</div>
+	<div bptk-progressview="game.currentRound / game.maxRounds"><div id="bptk-view-35" class="progress bptk-view"><div class="progress-bar" role="progressbar" style="width: 0%;">
+	<span class="sr-only">0% Complete</span>
+</div>
+</div></div>
+</div>
+</div><div id="bptk-view-32" class="bptk-notify bptk-view"><ul bptk-yield=""></ul></div></body>
