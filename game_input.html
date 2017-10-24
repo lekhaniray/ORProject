@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Game</title>
+	<style type="text/css">
+		.box
+		{
+			border-width: 2px;
+			border-style: solid;
+			border-radius: 10px;
+			width: 30%;
+			padding: 20px;
+			margin: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<center>
+<div class="box">
+		<form action="beergame.php" method="post" name="beergame">
+			<center>
+		Enter number of weeks: <input type="input" name="weeks"><br>
+		Customer lower limit: <input type="input" name="Retailer_lower"><br>
+		Customer upper limit: <input type="input" name="Retailer_upper"><br>
+		Random chnage in Customer Demand: <input type="input" name="change"><br>
+		Initial stock Retailer : <input type="input" name="iRetailer"><br>
+		Initial stock Wholeseller: <input type="input" name="iWholeseller"><br>
+		Initial stock Distributor: <input type="input" name="iDistributor"><br>
+		Initial stock Factory: <input type="input" name="iFactory"><br>
+		initial quantity of orders in every department except the Retailer: <input type="input" name="iOrder"><br>
+		<input type="submit" name="submit">
+		</center>
+	</form>
+</div>
+</center>
+</body>
+</html>
